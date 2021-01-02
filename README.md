@@ -1,3 +1,7 @@
+# Begin-React
+It's a React project of a novice web developer who is taking first steps in React.  
+This project refers to [Modern React with veropert](https://react.vlpt.us/).  
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
