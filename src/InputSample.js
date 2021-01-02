@@ -1,32 +1,43 @@
-import React, { useState } from 'react';
+import React, {useState, useRef} from 'react';
 
 function InputSample() {
-    const [eom_inputs, setEomInputs] = useState({
+    const [inputs, setInputs] = useState({
         name: '',
         nickname: ''
     });
+    const nameInput = useRef();
 
-    const {name,nickname} = eom_inputs;
+    const {name,nickname} = inputs;
 
-    const onChange = (e) => {
-        const {value, name} = e.target;
-        setEomInputs({
-            ...eom_inputs,
+    const onChange = e => {
+        const {name, value} = e.target;
+        setInputs({
+            ...inputs,
             [name]: value
-        })
+        });
     };
 
     const onReset = () => {
-        setEomInputs({
+        setInputs({
             name: '',
             nickname: '',
-        })
+        });
+        nameInput.current.focus();
     };
 
     return (
         <div>
-            <input name="name" placeholder="Name" onChange={onChange} value={name} />
-            <input name="nickname" placeholder="NickName" onChange={onChange} value={nickname} />
+            <input name="name"
+             placeholder="Name"
+             onChange={onChange}
+             value={name}
+             ref={nameInput}
+            />
+            <input name="nickname"
+            placeholder="NickName" 
+            onChange={onChange} 
+            value={nickname} 
+            />
             <button onClick={onReset}>초기화</button>
             <div>
                 <b>값: </b>
